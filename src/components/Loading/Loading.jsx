@@ -6,7 +6,7 @@ import {
   Flex,
   calc,
 } from "@chakra-ui/react";
-export default function LoadingLoggedIn() {
+export default function Loading() {
   return (
     <Center className="loading">
       <Flex justifyContent="center" alignItems="center">

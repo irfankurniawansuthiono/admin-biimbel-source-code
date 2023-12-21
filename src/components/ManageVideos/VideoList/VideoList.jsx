@@ -47,19 +47,14 @@ export default function VideoList(props) {
           <Thumbnail link={props.link_video} title={props.title_video} />
         </Skeleton>
       </Td>
-      <Td maxW={{ base: "200px", md: "290px" }}>
+      <Td maxW={{ base: "200px" }}>
         <Skeleton isLoaded={!loading} fadeDuration={1}>
           <Text whiteSpace={"normal"}>{props.title_video}</Text>
         </Skeleton>
       </Td>
       <Td maxW={{ base: "200px", md: "290px" }}>
-        <Skeleton isLoaded={!loading} fadeDuration={1.5}>
-          <Text whiteSpace={"normal"}>{props.link_video}</Text>
-        </Skeleton>
-      </Td>
-      <Td maxW={{ base: "200px", md: "290px" }}>
         <Skeleton isLoaded={!loading} fadeDuration={2}>
-          <Text whiteSpace={"normal"}>{props.description_video}</Text>
+          <Text whiteSpace={"pre-wrap"}>{props.description_video}</Text>
         </Skeleton>
       </Td>
       <Td maxW={{ base: "200px", md: "290px" }}>

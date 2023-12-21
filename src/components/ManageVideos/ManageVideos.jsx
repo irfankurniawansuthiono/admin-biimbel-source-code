@@ -77,12 +77,11 @@ export default function ManageVideos() {
           <Table variant="simple">
             <TableCaption>Manage Videos of BiimBel courses</TableCaption>
             <Thead>
-              <Tr textAlign={"center"}>
-                <Th>Thumbnail</Th>
-                <Th>title</Th>
-                <Th>link</Th>
-                <Th>description</Th>
-                <Th>category</Th>
+              <Tr>
+                <Th>Video</Th>
+                <Th>Title</Th>
+                <Th>Description</Th>
+                <Th>Category</Th>
                 <Th>Status</Th>
                 <Th>Action</Th>
               </Tr>

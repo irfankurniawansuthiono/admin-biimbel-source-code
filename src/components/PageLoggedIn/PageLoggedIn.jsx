@@ -205,21 +205,8 @@ const MobileNav = ({ onOpen, onToggle, isOpen, ...rest }) => {
                     BiimBel.service@gmail.com
                   </Text>
                 </VStack>
-                <Box display={{ base: "none", md: "flex" }}>
-                  <FiChevronDown />
-                </Box>
               </HStack>
             </MenuButton>
-            <MenuList
-              bg={useColorModeValue(
-                myTheme.colors.lightMode.background,
-                myTheme.colors.darkMode.background
-              )}
-              borderColor={useColorModeValue("gray.200", "gray.700")}
-            >
-              <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
-            </MenuList>
           </Menu>
         </Flex>
       </HStack>
