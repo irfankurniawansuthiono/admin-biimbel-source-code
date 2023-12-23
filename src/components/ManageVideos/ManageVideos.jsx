@@ -1,5 +1,5 @@
 import PageLoggedIn from "../PageLoggedIn/PageLoggedIn";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   Table,
@@ -8,14 +8,10 @@ import {
   Tr,
   Th,
   Box,
-  Td,
-  Text,
   TableCaption,
   Flex,
   Heading,
-  Button,
   TableContainer,
-  Skeleton,
 } from "@chakra-ui/react";
 import fetchVideosStoreZustand from "../../zustandStoreAction/fetchVideosStoreZustand";
 import VideoList from "./VideoList/VideoList";
@@ -71,7 +67,7 @@ export default function ManageVideos() {
         </Flex>
         <Flex align={"center"} mt={10} justifyContent={"space-between"}>
           <AddVideo />
-          <SearchBar />
+          <SearchBar placeHolder={"Search Video by title"} />
         </Flex>
         <TableContainer>
           <Table variant="simple">

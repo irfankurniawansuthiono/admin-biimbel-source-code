@@ -27,7 +27,7 @@ import { IoAddOutline } from "react-icons/io5";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import fetchVideosStoreZustand from "../../../zustandStoreAction/fetchVideosStoreZustand";
-import { insertVideoSupabase } from "../../../Supabase/insertVideo";
+import { insertVideoSupabase } from "../../../Supabase/videos/insertVideo";
 import Swal from "sweetalert2";
 export default function AddVideo() {
   const { isOpen, onOpen, onClose } = useDisclosure();

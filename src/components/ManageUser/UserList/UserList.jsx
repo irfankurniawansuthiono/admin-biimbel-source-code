@@ -1,13 +1,11 @@
 import { Tr, Td, Skeleton, Text, Button, Flex } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
-import EditVideo from "../EditVideo/EditVideo";
-import Thumbnail from "../Thumbnail/Thumbnail";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { deleteVideoSupabase } from "../../../Supabase/videos/deleteVideo";
-import fetchVideosStoreZustand from "../../../zustandStoreAction/fetchVideosStoreZustand";
-export default function VideoList(props) {
+import { deleteUserSupabase } from "../../../Supabase/Users/deleteUser";
+import fetchUsersStoreZustand from "../../../zustandStoreAction/fetchUserStoreZustand";
+export default function UserList(props) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
@@ -25,10 +23,10 @@ export default function VideoList(props) {
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
         if (result.isConfirmed) {
-          const result = await deleteVideoSupabase(id);
+          const result = await deleteUserSupabase(id);
           if (result) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            fetchVideosStoreZustand();
+            fetchUsersStoreZustand();
           }
         }
       });
@@ -39,36 +37,30 @@ export default function VideoList(props) {
   };
   return (
     <Tr>
-      <Td>
-        <Skeleton isLoaded={!loading} fadeDuration={0.5}>
-          <Thumbnail link={props.link_video} title={props.title_video} />
+      <Td maxW={{ base: "200px" }}>
+        <Skeleton isLoaded={!loading} fadeDuration={1}>
+          <Text whiteSpace={"normal"}>{props.created_at}</Text>
         </Skeleton>
       </Td>
       <Td maxW={{ base: "200px" }}>
         <Skeleton isLoaded={!loading} fadeDuration={1}>
-          <Text whiteSpace={"normal"}>{props.title_video}</Text>
+          <Text whiteSpace={"normal"}>{props.name}</Text>
         </Skeleton>
       </Td>
       <Td maxW={{ base: "200px", md: "290px" }}>
         <Skeleton isLoaded={!loading} fadeDuration={2}>
-          <Text whiteSpace={"pre-wrap"}>{props.description_video}</Text>
+          <Text whiteSpace={"pre-wrap"}>{props.email}</Text>
         </Skeleton>
       </Td>
       <Td maxW={{ base: "200px", md: "290px" }}>
         <Skeleton isLoaded={!loading} fadeDuration={2.5}>
-          <Text whiteSpace={"normal"}>{props.category_video}</Text>
+          <Text whiteSpace={"normal"}>
+            {props.phone ? props.phone : "Not Verified"}
+          </Text>
         </Skeleton>
       </Td>
       <Td>
-        <Skeleton isLoaded={!loading} fadeDuration={3}>
-          <Text>{props.free ? "Free" : "Paid"}</Text>
-        </Skeleton>
-      </Td>
-      <Td>
-        <Flex justifyContent={"space-between"} gap={2}>
-          <Skeleton isLoaded={!loading} fadeDuration={4}>
-            <EditVideo id={props.id} />
-          </Skeleton>
+        <Flex justifyContent={"space-between"}>
           <Skeleton isLoaded={!loading} fadeDuration={3.5}>
             <Button
               colorScheme="red"

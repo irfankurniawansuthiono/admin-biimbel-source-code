@@ -1,4 +1,4 @@
-import { fetchVideosSupabase } from "../Supabase/fetchVideos";
+import { fetchVideosSupabase } from "../Supabase/videos/fetchVideos";
 import useVideoStore from "../zustandStoreData/videoStore";
 export default async function fetchVideosStoreZustand() {
   try {

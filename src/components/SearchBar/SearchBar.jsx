@@ -1,7 +1,7 @@
 import { Input, Box, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { IoIosSearch } from "react-icons/io";
 import { useSearchParams } from "react-router-dom";
-export default function SearchBar() {
+export default function SearchBar({ placeHolder }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const handleChange = (value) => {
     if (value !== "") {
@@ -13,7 +13,7 @@ export default function SearchBar() {
     }
   };
   return (
-    <Box maxW={"50%"}>
+    <Box maxW={"50%"} justifyContent={"flex-end"}>
       <InputGroup>
         <InputLeftElement pointerEvents={"none"}>
           <IoIosSearch />
@@ -21,7 +21,7 @@ export default function SearchBar() {
         <Input
           type="text"
           variant={"filled"}
-          placeholder="Search by title"
+          placeholder={placeHolder}
           border={"1px solid black"}
           leftIcon={<IoIosSearch />}
           onChange={(e) => {

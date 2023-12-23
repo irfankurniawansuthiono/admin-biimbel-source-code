@@ -18,11 +18,11 @@ import {
 } from "@chakra-ui/react";
 import { RxUpdate } from "react-icons/rx";
 import { useRef, useState } from "react";
-import { fetchVideosEqualsToIdSupabase } from "../../../Supabase/fetchVideosEqualsToID";
+import { fetchVideosEqualsToIdSupabase } from "../../../Supabase/videos/fetchVideosEqualsToID";
 import { IoAddOutline } from "react-icons/io5";
 import { Formik } from "formik";
 import fetchVideosStoreZustand from "../../../zustandStoreAction/fetchVideosStoreZustand";
-import updateVideoSupabase from "../../../Supabase/updateVideo";
+import updateVideoSupabase from "../../../Supabase/videos/updateVideo";
 import Swal from "sweetalert2";
 import { MdEditSquare } from "react-icons/md";
 export default function EditVideo(id) {
@@ -102,7 +102,7 @@ export default function EditVideo(id) {
                   if (!values.category_video) {
                     errors.category_video = "Required";
                   }
-                  if (!values.free) {
+                  if (values.free === undefined || values.free === null) {
                     errors.free = "Required";
                   }
 
